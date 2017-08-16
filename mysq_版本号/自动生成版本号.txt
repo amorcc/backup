@@ -1,0 +1,8 @@
+1.先确定要获取版本号的目录 并将 EjiangLib\Src下的BuildAssemblyVersion.bat version.in 复制过来
+2.修改要自动生成版本的项目属性中“生成事件”-“预先生成事件命令行”，内容为调用第1条中的 BuildAssemblyVersion.bat
+	2.1：解决方案文件相对目录法  $(SolutionDir)BuildAssemblyVersion.bat
+	2.2: 项目文件相对目录法 $(ProjectDir)..\BuildAssemblyVersion.bat
+3.生成项目
+4.在项目中添加现有项，选中第1步目录中新生成的AssemblyVersion.cs，添加为链接
+5.删除项目中原有的Assembly.cs中 AssemblyVersion、AssemblyFileVersion、AssemblyCompany、AssemblyCopyright、AssemblyTrademark
+5.重新生成项目，完成
